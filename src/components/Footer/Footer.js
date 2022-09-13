@@ -65,6 +65,7 @@ const CopyRightArea = styled.div`
 `;
 
 const Footer = ({ isDark = true }) => {
+  const currentYear = new Date().getFullYear();
   return (
     <>
       {/* <!-- Footer section --> */}
@@ -191,26 +192,13 @@ const Footer = ({ isDark = true }) => {
           <CopyRightArea dark={isDark ? 1 : 0}>
             <Row className="align-items-center">
               <Col sm="6" className="text-sm-left text-center mb-2 mb-sm-0">
-                <p>&copy; 2019 UXTheme, All Rights Reserved</p>
-              </Col>
-              <Col sm="6" className="text-sm-right text-center">
-                <ul className="social-icons">
-                  <li>
-                    <a href="/#" target="_blank">
-                      <i className="icon icon-logo-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/#" target="_blank">
-                      <i className="icon icon-logo-linkedin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/#" target="_blank">
-                      <i className="icon icon-logo-facebook"></i>
-                    </a>
-                  </li>
-                </ul>
+                <a
+                  href="https://www.ridgecoding.com"
+                  target="_blank"
+                  aria-label="Ridge Coding"
+                >
+                  <p>&copy; Ridge Coding, {currentYear} All Rights Reserved</p>
+                </a>
               </Col>
             </Row>
           </CopyRightArea>

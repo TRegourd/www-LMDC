@@ -55,7 +55,8 @@ const SiteHeader = styled.header`
     left: 0;
     right: 0;
     bottom: 0;
-    background: #f9544b;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 100% 50%;
@@ -89,10 +90,10 @@ const SiteHeader = styled.header`
     height: 45px !important;
     display: flex;
     align-items: center;
+    text-decoration: none;
     justify-content: center;
     border-radius: 5px;
-    border: 1px solid #c31a12;
-    background: #f04037;
+    background: #2193b0;
     color: #fff !important;
     font-family: "CircularStd", sans-serif;
     font-size: 21px;

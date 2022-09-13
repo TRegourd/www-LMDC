@@ -1,8 +1,8 @@
 {
-  "name": "omega-gatsby",
-  "description": "Omega Gatsby with Bootstrap 4, Styled Components, Slick Carousel, React Icons, React Headroom, etc",
+  "name": "lmdc-www",
+  "description": "Le monde des crypto website",
   "version": "1.0.0",
-  "author": "grayic",
+  "author": "Ridge Coding",
   "dependencies": {
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "aos": "^3.0.0-beta.6",

@@ -8,9 +8,9 @@ const Logo = ({ white, height, className = "", ...rest }) => {
   return (
     <Link to="/" className={`${className}`} {...rest}>
       {white ? (
-        <img src={imgL1LogoWhite} alt="" />
+        <img src={imgL1LogoWhite} alt="LMDC Logo" height={"100px"} />
       ) : (
-        <img src={imgL1Logo} alt="" />
+        <img src={imgL1Logo} alt="LMDC Logo" height={"100px"} />
       )}
     </Link>
   );
