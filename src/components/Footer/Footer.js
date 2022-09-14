@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { Title, Box } from "../Core";
 import Logo from "../Logo";
+import { device } from "../../utils";
 
 const TitleStyled = styled(Title)`
   font-size: 16px;
@@ -69,6 +70,7 @@ const Footer = ({ isDark = true }) => {
   return (
     <>
       {/* <!-- Footer section --> */}
+
       <Box bg={isDark ? "dark" : "light"}>
         <Container>
           <Box
