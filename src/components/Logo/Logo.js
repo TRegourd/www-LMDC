@@ -3,14 +3,25 @@ import { Link } from "gatsby";
 
 import imgL1Logo from "../../assets/image/png/l1-logo.png";
 import imgL1LogoWhite from "../../assets/image/png/logo-white.png";
+import styled from "styled-components";
+import { device } from "../../utils";
+
+const BrandLogo = styled.img`
+  @media ${device.xs} {
+    max-height: 50px;
+  }
+  @media ${device.lg} {
+    max-height: 100px;
+  }
+`;
 
 const Logo = ({ white, height, className = "", ...rest }) => {
   return (
     <Link to="/" className={`${className}`} {...rest}>
       {white ? (
-        <img src={imgL1LogoWhite} alt="LMDC Logo" height={"100px"} />
+        <BrandLogo src={imgL1LogoWhite} alt="LMDC Logo" />
       ) : (
-        <img src={imgL1Logo} alt="LMDC Logo" height={"100px"} />
+        <BrandLogo src={imgL1Logo} alt="LMDC Logo" />
       )}
     </Link>
   );
