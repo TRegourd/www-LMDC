@@ -29,7 +29,7 @@ const CryptoIcon = styled.img`
   max-width: 64px;
 `;
 
-const CryptoCard = ({ color = "primary", icon, title, children, ...rest }) => (
+const CryptoCard = ({ color = "primary", icon, name, children, ...rest }) => (
   <Box bg="light" py="25px" px="30px" borderRadius={10} mb={4} {...rest}>
     <Box
       size={69}
@@ -42,7 +42,7 @@ const CryptoCard = ({ color = "primary", icon, title, children, ...rest }) => (
           rgba(theme.colors[color], 0.1)};
       `}
     >
-      <CryptoIcon src={icon} alt={title} />
+      <CryptoIcon src={icon} alt={name} />
     </Box>
     <div>
       <Text
@@ -53,7 +53,7 @@ const CryptoCard = ({ color = "primary", icon, title, children, ...rest }) => (
         letterSpacing={-0.75}
         my={3}
       >
-        {title}
+        {name}
       </Text>
       <Text fontSize={2} lineHeight={1.75}>
         {children}
@@ -62,8 +62,7 @@ const CryptoCard = ({ color = "primary", icon, title, children, ...rest }) => (
   </Box>
 );
 
-const Crypto = ({ list }) => {
-  console.log(list);
+const Crypto = ({ list, content }) => {
   return (
     <>
       {/* <!-- Feature section --> */}
@@ -81,14 +80,10 @@ const Crypto = ({ list }) => {
         <Container>
           <Col lg="12" className="pl-lg-5 mb-3 order-lg-2">
             <div className="feature-content section-title">
-              <Title color="light">Build a perfect landing page.</Title>
+              <Title color="light">{content.title}</Title>
               <Text color="light" opacity={0.7} mb={4}>
-                Create custom landing pages with Omega that converts more
-                visitors than any website. With lots of unique blocks, you can
-                easily build a page without coding.
+                {content.subtitle}
               </Text>
-
-              <Button variant="outline">Check all features</Button>
             </div>
           </Col>
           <Row className="align-items-center">
@@ -96,13 +91,12 @@ const Crypto = ({ list }) => {
               <Row>
                 {list &&
                   list.map((crypto) => {
-                    console.log(crypto.image);
                     return (
                       <Col md="3" key={crypto.id}>
                         <CryptoCard
                           color="primary"
                           icon={crypto.image}
-                          title={crypto.name}
+                          name={crypto.name}
                         >
                           {crypto.current_price} €
                         </CryptoCard>
@@ -112,6 +106,13 @@ const Crypto = ({ list }) => {
               </Row>
             </Col>
           </Row>
+          <a
+            href="https://www.coingecko.com/"
+            style={{ textDecoration: "none" }}
+            aria-label="CoinGecko Link"
+          >
+            <Button variant="outline">Voir tous les cours</Button>
+          </a>
         </Container>
       </Section>
     </>
