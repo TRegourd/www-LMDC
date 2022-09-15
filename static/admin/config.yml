@@ -2,7 +2,7 @@ backend:
   name: github
   repo: TRegourd/www-LMDC
   branch: master
-media_folder: static/assets
+media_folder: src/content/assets
 public_folder: /assets
 publish_mode: editorial_workflow
 collections:
