@@ -26,6 +26,7 @@ const ButtonSolid = styled.button`
   overflow: hidden;
   outline: none !important;
   white-space: nowrap;
+
   ${color};
   ${background};
   ${border};
@@ -49,6 +50,7 @@ const ButtonSolid = styled.button`
     transition-property: transform;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
+    text-decoration: none !important;
   }
 
   &:hover:before,
