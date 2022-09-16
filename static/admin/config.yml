@@ -2,8 +2,8 @@ backend:
   name: github
   repo: TRegourd/www-LMDC
   branch: master
-media_folder: src/content/assets
-public_folder: /assets
+media_folder: src/assets/image
+public_folder: assets/image
 publish_mode: editorial_workflow
 collections:
   - label: "Contenu de la page d'accueil"
@@ -16,6 +16,8 @@ collections:
           - { label: Titre, name: title, widget: string }
           - { label: Sous-Titre, name: subtitle, widget: string }
           - { label: Image, name: hero_img, widget: image }
+          - { label: Carte Glissante Haute, name: topCard, widget: string }
+          - { label: Carte Glissante Basse, name: botCard, widget: string }
 
   - label: "Contenu de la FAQ"
     name: "faq"
