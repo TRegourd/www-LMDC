@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 
 import PageWrapper from "../components/PageWrapper";
-import { Section, Title, Text, Box, Span } from "../components/Core";
+import { Section, Title, Text, Box } from "../components/Core";
 import { graphql } from "gatsby";
 
 const NavStyled = styled(Nav)`
@@ -74,11 +74,14 @@ const Faq = ({ data }) => {
                       });
 
                       return (
-                        <Tab.Content>
+                        <Tab.Content key={category}>
                           {sortedQuestions &&
                             sortedQuestions.map((question) => {
                               return (
-                                <Tab.Pane eventKey={question.category}>
+                                <Tab.Pane
+                                  key={question.name}
+                                  eventKey={question.category}
+                                >
                                   <Box mb={4}>
                                     <Title
                                       variant="card"
