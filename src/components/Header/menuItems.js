@@ -3,6 +3,7 @@ export const menuItems = [
     name: "about",
     label: "A propos",
   },
+  { name: "faq", label: "FAQ" },
   {
     name: "tools",
     label: "Outils",

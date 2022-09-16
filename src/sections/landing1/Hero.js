@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
 import { Title, Button, Section, Box, Text } from "../../components/Core";
-
-import GlobalContext from "../../context/GlobalContext";
 
 import { device } from "../../utils";
 import svgHeroShape from "../../assets/image/svg/hero-shape-svg.svg";
@@ -59,13 +57,6 @@ const ImgRight = styled.img`
 `;
 
 const Hero = () => {
-  const gContext = useContext(GlobalContext);
-
-  const openVideoModal = (e) => {
-    e.preventDefault();
-    gContext.toggleVideoModal();
-  };
-
   return (
     <>
       {/* <!-- Hero Area --> */}
@@ -162,17 +153,7 @@ const Hero = () => {
                     can easily build a page without coding.
                   </Text>
                   <div className="d-flex flex-column align-items-start">
-                    <Button mb={3}>Get Started</Button>
-                    <a
-                      href="/"
-                      className="text-decoration-none"
-                      onClick={openVideoModal}
-                    >
-                      <Box color="secondary">
-                        <i className="icon icon-triangle-right-17-2"></i> Watch
-                        the intro video
-                      </Box>
-                    </a>
+                    <Button mb={3}>En savoir plus</Button>
                   </div>
                 </Box>
               </div>

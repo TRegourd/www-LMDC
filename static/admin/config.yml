@@ -9,9 +9,33 @@ collections:
   - label: "Contenu de la page d'accueil"
     name: "index"
     files:
-      - label: "Cours des Cryptos"
-        name: "indexCrypto"
-        file: "src/content/indexCrypto.md"
+      - label: "Bannière d'accueil"
+        name: "heroContent"
+        file: "src/content/hero.md"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: string }
+          - { label: Titre, name: title, widget: string }
+          - { label: Sous-Titre, name: subtitle, widget: string }
+          - { label: Image, name: hero_img, widget: image }
+
+  - label: "Contenu de la FAQ"
+    name: "faq"
+    files:
+      - label: "Contenu de la page"
+        name: "faqContent"
+        file: "src/content/faq.md"
+        fields:
+          - { label: Titre, name: title, widget: string }
+          - { label: Sous Titre, name: subtitle, widget: string }
+          - label: Questions
+            name: questions
+            widget: list
+            fields:
+              - { label: Titre, name: name, widget: string }
+              - { label: Texte, name: text, widget: markdown }
+              - {
+                  label: Catégorie,
+                  name: category,
+                  widget: "select",
+                  options: ["Général", "Fiscalité", "Investissement"],
+                  required: true,
+                }
