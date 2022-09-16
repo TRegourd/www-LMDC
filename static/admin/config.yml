@@ -41,3 +41,25 @@ collections:
                   options: ["Général", "Fiscalité", "Investissement"],
                   required: true,
                 }
+
+  - label: "Contenu des Articles"
+    name: "articles"
+    files:
+      - label: "Contenu de la page"
+        name: "articlesContent"
+        file: "src/content/articles.md"
+        fields:
+          - { label: Titre, name: title, widget: string }
+          - { label: Sous Titre, name: subtitle, widget: string }
+          - label: Catégorie
+            name: category
+            widget: list
+            fields:
+              - { label: Nom, name: name, widget: string }
+              - label: Articles
+                name: articles
+                widget: list
+                fields:
+                  - { label: Titre, name: title, widget: string }
+                  - { label: Date, name: date, widget: date }
+                  - { label: Texte, name: text, widget: markdown }

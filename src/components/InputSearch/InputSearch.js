@@ -26,6 +26,10 @@ const BoxInput = styled(Box)`
     line-height: 26px;
     border: 0;
     background: transparent;
+    ::placeholder {
+      color: white;
+      opacity: 0.5;
+    }
     &:focus {
       box-shadow: none;
       background: transparent;
@@ -43,7 +47,7 @@ const InputSearch = (props) => {
         <input
           type="text"
           className="form-control"
-          placeholder="Type to search"
+          placeholder="Chercher un article"
         />
       </BoxInput>
     </>
