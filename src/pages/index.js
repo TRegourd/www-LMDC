@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <PageWrapper footerDark>
-        <Hero />
+        <Hero content={data?.hero.frontmatter} />
         <IndexCrypto list={crypto} />
         <Content1 />
         <Content2 />
@@ -37,10 +37,13 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    indexCrypto: markdownRemark(fields: { slug: { eq: "/indexCrypto" } }) {
+    hero: markdownRemark(fields: { slug: { eq: "/hero" } }) {
       frontmatter {
         title
         subtitle
+        hero_img
+        topCard
+        botCard
       }
     }
   }

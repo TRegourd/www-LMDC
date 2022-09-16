@@ -6,7 +6,7 @@ import { Title, Button, Section, Box, Text } from "../../components/Core";
 
 import { device } from "../../utils";
 import svgHeroShape from "../../assets/image/svg/hero-shape-svg.svg";
-import imgL1HeroPhone from "../../assets/image/png/landing1-hero-phone.png";
+import imgL1HeroPhone from "../../assets/image/png/l1-hero_img.png";
 
 const ShapeTopLeft = styled.div`
   position: absolute;
@@ -19,7 +19,7 @@ const TopCard = styled(Box)`
   width: 305px;
   box-shadow: ${({ theme }) => `0 32px 34px ${theme.colors.shadow}`};
   position: absolute;
-  top: 14%;
+  top: -10%;
   left: 0;
   @media ${device.md} {
     left: -13%;
@@ -33,7 +33,7 @@ const BottomCard = styled(Box)`
   width: 305px;
   box-shadow: ${({ theme }) => `0 32px 34px ${theme.colors.shadow}`};
   position: absolute;
-  bottom: 12%;
+  bottom: 0;
   right: 0;
   @media ${device.md} {
     right: -13%;
@@ -47,23 +47,24 @@ const BottomCard = styled(Box)`
 `;
 
 const ImgRight = styled.img`
-  max-width: 50%;
+  max-width: 100%;
   @media ${device.sm} {
-    max-width: 60%;
+    max-width: 100%;
   }
   @media ${device.lg} {
     max-width: 100%;
   }
 `;
 
-const Hero = () => {
+const Hero = ({ content }) => {
+  console.log(content);
   return (
     <>
       {/* <!-- Hero Area --> */}
       <Section className="position-relative">
         <div className="pt-5"></div>
         <ShapeTopLeft>
-          <img src={svgHeroShape} alt="" className="img-fluid" />
+          <img src={`../../${content.hero_img}`} alt="" className="img-fluid" />
         </ShapeTopLeft>
         <Container>
           <Row className="justify-content-center align-items-center">
@@ -103,7 +104,7 @@ const Hero = () => {
                     <i className="icon icon-check-2"></i>
                   </Box>
                   <Text color="light" fontSize={2} lineHeight="1.25">
-                    You have successfully logged in
+                    {content.topCard}
                   </Text>
                 </TopCard>
 
@@ -131,7 +132,7 @@ const Hero = () => {
                     <i className="icon icon-check-2"></i>
                   </Box>
                   <Text color="dark" fontSize={2} lineHeight="1.25">
-                    Appointment with the doctor was successful. Move to next!
+                    {content.botCard}
                   </Text>
                 </BottomCard>
               </div>
@@ -144,14 +145,8 @@ const Hero = () => {
                 data-aos-delay="500"
               >
                 <Box py={[null, null, null, 5]} pr={5} pt={[4, null]}>
-                  <Title variant="hero">
-                    Redesigned, how you build landing page!
-                  </Title>
-                  <Text mb={4}>
-                    Create custom landing pages with Omega that convert more
-                    visitors than any website. With lots of unique blocks, you
-                    can easily build a page without coding.
-                  </Text>
+                  <Title variant="hero">{content.title}</Title>
+                  <Text mb={4}>{content.subtitle}</Text>
                   <div className="d-flex flex-column align-items-start">
                     <Button mb={3}>En savoir plus</Button>
                   </div>
