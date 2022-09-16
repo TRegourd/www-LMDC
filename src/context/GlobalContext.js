@@ -5,6 +5,7 @@ const GlobalContext = React.createContext();
 const GlobalProvider = ({ children }) => {
   const [themeDark, setThemeDark] = useState(false);
   const [videoModalVisible, setVideoModalVisible] = useState(false);
+  const [textModalVisible, setTextModalVisible] = useState(false);
   const [visibleOffCanvas, setVisibleOffCanvas] = useState(false);
   const [headerDark, setHeaderDark] = useState(false);
   const [footerDark, setFooterDark] = useState(true);
@@ -16,6 +17,10 @@ const GlobalProvider = ({ children }) => {
 
   const toggleVideoModal = () => {
     setVideoModalVisible(!videoModalVisible);
+  };
+
+  const toggleTextModal = () => {
+    setTextModalVisible(!textModalVisible);
   };
 
   const toggleOffCanvas = () => {
@@ -60,6 +65,8 @@ const GlobalProvider = ({ children }) => {
         goFooterLight,
         videoModalVisible,
         toggleVideoModal,
+        textModalVisible,
+        toggleTextModal,
         visibleOffCanvas,
         toggleOffCanvas,
         closeOffCanvas,

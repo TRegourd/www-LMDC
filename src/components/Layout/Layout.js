@@ -50,6 +50,7 @@ import { get, merge } from "lodash";
 
 // the full theme object
 import { theme as baseTheme } from "../../utils";
+import ModalText from "../ModalText/ModalText";
 
 const Loader = styled.div`
   position: fixed;
@@ -94,7 +95,7 @@ const Layout = ({ children, pageContext }) => {
   useEffect(() => {
     window.addEventListener(
       "popstate",
-      function(event) {
+      function (event) {
         // The popstate event is fired each time when the current history entry changes.
 
         gContext.closeOffCanvas();
@@ -103,7 +104,7 @@ const Layout = ({ children, pageContext }) => {
     );
     window.addEventListener(
       "pushState",
-      function(event) {
+      function (event) {
         // The pushstate event is fired each time when the current history entry changes.
         gContext.closeOffCanvas();
       },
@@ -133,6 +134,7 @@ const Layout = ({ children, pageContext }) => {
         </div>
 
         <ModalVideo />
+        <ModalText />
       </ThemeProvider>
     );
   }
@@ -162,6 +164,7 @@ const Layout = ({ children, pageContext }) => {
         </div>
 
         <ModalVideo />
+        <ModalText />
       </ThemeProvider>
     </>
   );

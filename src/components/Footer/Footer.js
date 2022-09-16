@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { Title, Box } from "../Core";
 import Logo from "../Logo";
 import { device } from "../../utils";
+import GlobalContext from "../../context/GlobalContext";
 
 const TitleStyled = styled(Title)`
   font-size: 16px;
@@ -67,6 +68,12 @@ const CopyRightArea = styled.div`
 
 const Footer = ({ isDark = true }) => {
   const currentYear = new Date().getFullYear();
+  const gContext = useContext(GlobalContext);
+
+  const openTextModal = (e) => {
+    e.preventDefault();
+    gContext.toggleTextModal();
+  };
   return (
     <>
       {/* <!-- Footer section --> */}
@@ -90,7 +97,7 @@ const Footer = ({ isDark = true }) => {
                         variant="card"
                         color={isDark ? "light" : "dark"}
                       >
-                        About
+                        A propos
                       </TitleStyled>
                       <UlStyled color={isDark ? "lightShade" : "darkShade"}>
                         <li>
@@ -104,8 +111,8 @@ const Footer = ({ isDark = true }) => {
                           </a>
                         </li>
                         <li>
-                          <a href="/#" target="_blank">
-                            Team Members
+                          <a href="/#" onClick={openTextModal}>
+                            Crédits
                           </a>
                         </li>
                       </UlStyled>

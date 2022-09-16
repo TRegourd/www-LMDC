@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../sections/landing1/Hero";
-import Clients from "../sections/landing1/Clients";
+import IndexCrypto from "../sections/landing1/IndexCrypto";
 import Content1 from "../sections/landing1/Content1";
 import Content2 from "../sections/landing1/Content2";
 import Testimonial from "../sections/landing1/Testimonial";
 import CTA from "../sections/landing1/CTA";
 import PageWrapper from "../components/PageWrapper";
-import Crypto from "../sections/landing1/Crypto";
 import { graphql } from "gatsby";
 
 const IndexPage = ({ data }) => {
@@ -25,8 +24,7 @@ const IndexPage = ({ data }) => {
     <>
       <PageWrapper footerDark>
         <Hero />
-        <Clients />
-        <Crypto content={data?.indexCrypto.frontmatter} list={crypto} />
+        <IndexCrypto list={crypto} />
         <Content1 />
         <Content2 />
         <Testimonial />
