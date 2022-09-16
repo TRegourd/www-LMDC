@@ -2,15 +2,26 @@ import React from "react";
 import { Link } from "gatsby";
 
 import { Title, Text, Box, Span } from "../Core";
+import styled from "styled-components";
+
+const CardSidebarContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 10px;
+  a {
+    text-decoration: none;
+  }
+`;
 
 export const CardSidebar = ({ children, ...rest }) => (
-  <Box bg="ash" borderRadius="10px" mb="30px" p="25px" {...rest}>
-    {children}
-  </Box>
+  <CardSidebarContainer>
+    <Box mb="30px" p="25px" {...rest}>
+      {children}
+    </Box>
+  </CardSidebarContainer>
 );
 
 export const Block = ({ children, ...rest }) => (
-  <Box borderBottom="1px solid #524f73" pt="20px" pb="13px" {...rest}>
+  <Box borderBottom="1px solid white" pt="20px" pb="13px" {...rest}>
     {children}
   </Box>
 );
@@ -48,21 +59,19 @@ export const CatList = ({ children, ...rest }) => (
   </ul>
 );
 
-export const CatListItem = ({
-  link = "/",
-  numPosts = 20,
-  children,
-  ...rest
-}) => (
-  <li
-    {...rest}
-    css={`
-      margin-bottom: 13px;
-    `}
-  >
-    <Link to={link}>
-      <Span color="light">{children}</Span>{" "}
-      <Span color="lightShade">- {numPosts} Posts</Span>
-    </Link>
-  </li>
-);
+export const CatListItem = ({ link = "/", numPosts, children, ...rest }) => {
+  console.log(numPosts);
+  return (
+    <li
+      {...rest}
+      css={`
+        margin-bottom: 13px;
+      `}
+    >
+      <Link to={link}>
+        <Span color="light">{children}</Span>{" "}
+        <Span color="lightShade">- {numPosts} Articles</Span>
+      </Link>
+    </li>
+  );
+};

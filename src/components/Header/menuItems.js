@@ -4,6 +4,7 @@ export const menuItems = [
     label: "A propos",
   },
   { name: "faq", label: "FAQ" },
+  { name: "articles", label: "News" },
   {
     name: "tools",
     label: "Outils",
