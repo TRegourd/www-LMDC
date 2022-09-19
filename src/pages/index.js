@@ -10,6 +10,7 @@ import { graphql } from "gatsby";
 
 const IndexPage = ({ data }) => {
   const [crypto, setCrypto] = useState();
+  const images = data?.images.nodes;
 
   useEffect(() => {
     fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=12&page=1&sparkline=false
@@ -23,7 +24,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <PageWrapper footerDark>
-        <Hero content={data?.hero.frontmatter} />
+        <Hero content={data?.hero.frontmatter} images={images} />
         <IndexCrypto list={crypto} />
         <Content1 />
         <Content2 />
@@ -44,6 +45,19 @@ export const query = graphql`
         hero_img
         topCard
         botCard
+      }
+    }
+    images: allFile(
+      filter: {
+        relativeDirectory: { eq: "" }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
+      nodes {
+        relativePath
+        childrenImageSharp {
+          gatsbyImageData
+        }
       }
     }
   }

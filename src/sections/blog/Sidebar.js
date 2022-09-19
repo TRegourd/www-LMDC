@@ -13,9 +13,9 @@ import {
 import InputSearch from "../../components/InputSearch";
 import { sortArticlesByDate } from "../../utils/sortArticlesByDate";
 import dayjs from "dayjs";
+import slugify from "slugify";
 
 const Sidebar = ({ list }) => {
-  console.log(sortArticlesByDate(list).slice(0, 4));
   return (
     <>
       <CardSidebar p="15px" pl="20px">
@@ -30,7 +30,9 @@ const Sidebar = ({ list }) => {
           .map((article) => {
             return (
               <Block key={article.title + article.date}>
-                <TitlePost>{article.title}</TitlePost>
+                <TitlePost link={`/articles/${slugify(article.title)}`}>
+                  {article.title}
+                </TitlePost>
                 <Date>{dayjs(article.date).format("DD MMM YYYY")}</Date>
               </Block>
             );

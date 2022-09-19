@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 
 import PageWrapper from "../components/PageWrapper";
@@ -8,8 +8,21 @@ import { Section, Title, Text, Box } from "../components/Core";
 import PostDetails from "../sections/blog/PostDetails";
 import Comments from "../sections/blog/Comments";
 import Sidebar from "../sections/blog/Sidebar";
+import dayjs from "dayjs";
+import { getImage } from "gatsby-plugin-image";
 
-const ArticleDetails = () => {
+const ArticleDetails = ({ pageContext, data }) => {
+  const { content } = pageContext;
+  const images = data?.images.nodes;
+
+  const articleImage = getImage(
+    images.find((el) => {
+      return el.relativePath === content.thumbnail;
+    })?.childrenImageSharp[0]
+  );
+
+  console.log(articleImage);
+
   return (
     <>
       <PageWrapper footerDark>
@@ -18,13 +31,10 @@ const ArticleDetails = () => {
           <Container>
             <Row className="justify-content-center text-center">
               <Col lg="12">
-                <Title variant="hero">
-                  How To Blow Through Capital{" "}
-                  <br className="d-none d-lg-block" /> At An Incredible Rate
-                </Title>
+                <Title variant="hero">{content.title}</Title>
                 <Box className="d-flex justify-content-center">
                   <Text mr={3}>
-                    <Link to="/">Jan 14, 2020 </Link>
+                    {dayjs(content.date).format("DD MMM, YYYY")}
                   </Text>
                   <Text mr={3}>
                     <Link to="/">Technology</Link>
@@ -41,7 +51,7 @@ const ArticleDetails = () => {
           <Container>
             <Row>
               <Col lg="12" className="mb-5">
-                <PostDetails />
+                <PostDetails image={articleImage} />
               </Col>
             </Row>
           </Container>
@@ -51,3 +61,21 @@ const ArticleDetails = () => {
   );
 };
 export default ArticleDetails;
+
+export const query = graphql`
+  query {
+    images: allFile(
+      filter: {
+        relativeDirectory: { eq: "" }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
+      nodes {
+        relativePath
+        childrenImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+`;

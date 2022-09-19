@@ -65,6 +65,7 @@ exports.createPages = ({ actions, graphql }) => {
             component: articleTemplate,
             context: {
               slug: `articles/${slug}`,
+              content: article,
             },
           });
         });

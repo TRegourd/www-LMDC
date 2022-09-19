@@ -3,7 +3,7 @@ backend:
   repo: TRegourd/www-LMDC
   branch: master
 media_folder: src/assets/image
-public_folder: assets/image
+public_folder: ""
 publish_mode: editorial_workflow
 collections:
   - label: "Contenu de la page d'accueil"

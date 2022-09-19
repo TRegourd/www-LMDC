@@ -13,24 +13,30 @@ import imgB4 from "../../assets/image/jpeg/blog-post--img-8.jpg";
 import imgB5 from "../../assets/image/jpeg/blog-post--img-9.jpg";
 import { sortArticlesByDate } from "../../utils/sortArticlesByDate";
 import dayjs from "dayjs";
+import slugify from "slugify";
 
-const BlogList = ({ list }) => (
+const BlogList = ({ list, images }) => (
   <>
     {/* <!-- Blog section --> */}
 
     <Row className="align-items-center justify-content-center">
       {sortArticlesByDate(list) &&
         sortArticlesByDate(list).map((article) => {
+          const articleImage = images.find((el) => {
+            return el.relativePath === article.thumbnail;
+          });
           return (
-            <PostCard
-              key={article.name + article.date}
-              img={article.thumbnail}
-              preTitle={dayjs(article.date).format("DD MMM YYYY")}
-              title={article.title}
-              readMore
-            >
-              {article.text}
-            </PostCard>
+            <Col lg="6" className="mb-5" key={article.name + article.date}>
+              <PostCard
+                link={slugify(article.title)}
+                img={articleImage?.childrenImageSharp[0]}
+                preTitle={dayjs(article.date).format("DD MMM YYYY")}
+                title={article.title}
+                readMore
+              >
+                {article.text}
+              </PostCard>
+            </Col>
           );
         })}
     </Row>

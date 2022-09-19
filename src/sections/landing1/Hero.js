@@ -6,7 +6,7 @@ import { Title, Button, Section, Box, Text } from "../../components/Core";
 
 import { device } from "../../utils";
 import svgHeroShape from "../../assets/image/svg/hero-shape-svg.svg";
-import imgL1HeroPhone from "../../assets/image/png/l1-hero_img.png";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const ShapeTopLeft = styled.div`
   position: absolute;
@@ -46,7 +46,7 @@ const BottomCard = styled(Box)`
   }
 `;
 
-const ImgRight = styled.img`
+const ImgRight = styled.div`
   max-width: 100%;
   @media ${device.sm} {
     max-width: 100%;
@@ -56,15 +56,20 @@ const ImgRight = styled.img`
   }
 `;
 
-const Hero = ({ content }) => {
-  console.log(content);
+const Hero = ({ content, images }) => {
+  const heroImage = getImage(
+    images.find((el) => {
+      return el.relativePath === content.hero_img;
+    })?.childrenImageSharp[0]
+  );
+
   return (
     <>
       {/* <!-- Hero Area --> */}
       <Section className="position-relative">
         <div className="pt-5"></div>
         <ShapeTopLeft>
-          <img src={`../../${content.hero_img}`} alt="" className="img-fluid" />
+          <img src={svgHeroShape} alt="" className="img-fluid" />
         </ShapeTopLeft>
         <Container>
           <Row className="justify-content-center align-items-center">
@@ -77,7 +82,9 @@ const Hero = ({ content }) => {
                   data-aos-once="true"
                   data-aos-delay="500"
                 >
-                  <ImgRight src={imgL1HeroPhone} alt="" />
+                  <ImgRight>
+                    <GatsbyImage image={heroImage} alt="heroImage" />
+                  </ImgRight>
                 </div>
 
                 <TopCard
