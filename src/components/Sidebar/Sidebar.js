@@ -60,7 +60,6 @@ export const CatList = ({ children, ...rest }) => (
 );
 
 export const CatListItem = ({ link = "/", numPosts, children, ...rest }) => {
-  console.log(numPosts);
   return (
     <li
       {...rest}

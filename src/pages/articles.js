@@ -30,7 +30,7 @@ const Articles = ({ data }) => {
           <Container>
             <Row>
               <Col lg="8" className="order-lg-2 mb-5">
-                <BlogList />
+                <BlogList list={list} />
               </Col>
               <Col lg="4" className="order-lg-1">
                 <Sidebar list={list} />
@@ -55,6 +55,8 @@ export const query = graphql`
           articles {
             title
             text
+            thumbnail
+            date
           }
         }
       }

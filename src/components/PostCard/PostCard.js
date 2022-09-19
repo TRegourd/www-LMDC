@@ -60,6 +60,7 @@ const PostCard = ({
   imgBrand,
   preTitle,
   title,
+  link,
   children,
   readMore,
   ...rest
@@ -95,7 +96,7 @@ const PostCard = ({
     <CardText>
       {preTitle && (
         <Text fontSize={2} lineHeight={1.75} mb="14px">
-          Jan 14, 2020
+          {preTitle}
         </Text>
       )}
 
@@ -110,7 +111,7 @@ const PostCard = ({
       {readMore && (
         <Box>
           <Link to="/">
-            <Span color="primary">Continue Reading</Span>
+            <Span color="primary">Lire la suite</Span>
           </Link>
         </Box>
       )}
