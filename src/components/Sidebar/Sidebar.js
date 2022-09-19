@@ -32,7 +32,7 @@ export const TitleSidebar = ({ children, ...rest }) => (
   </Title>
 );
 
-export const TitlePost = ({ link = "/", children, ...rest }) => (
+export const TitlePost = ({ link, children, ...rest }) => (
   <Title variant="card" fontSize="16px" mb={0} {...rest}>
     <Link to={link}>
       <Span color="light">{children}</Span>
@@ -60,7 +60,6 @@ export const CatList = ({ children, ...rest }) => (
 );
 
 export const CatListItem = ({ link = "/", numPosts, children, ...rest }) => {
-  console.log(numPosts);
   return (
     <li
       {...rest}

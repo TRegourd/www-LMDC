@@ -5,6 +5,7 @@ import { Box, Badge } from "../../components/Core";
 
 import imgB1 from "../../assets/image/jpeg/blog-details-img-1.jpg";
 import iconQuote from "../../assets/image/png/quote-icon.png";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Post = styled(Box)`
   overflow: hidden;
@@ -84,13 +85,23 @@ const BadgePost = ({ children }) => (
   </Badge>
 );
 
-const PostDetails = () => (
+const ArticleHeaderImg = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+`;
+
+const PostDetails = ({ image }) => (
   <>
     {/* <!-- Blog section --> */}
     <Post>
-      <div>
-        <img src={imgB1} alt="" />
-      </div>
+      <ArticleHeaderImg>
+        <GatsbyImage
+          image={image}
+          alt="articleImage"
+          className="w-50 img-fluid"
+        />
+      </ArticleHeaderImg>
       <div>
         <p>
           Doubling my 9–5 salary several times in my career is something I never

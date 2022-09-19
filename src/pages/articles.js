@@ -12,6 +12,8 @@ const Articles = ({ data }) => {
   const title = data?.markdownRemark.frontmatter.title;
   const subtitle = data?.markdownRemark.frontmatter.subtitle;
   const list = data?.markdownRemark.frontmatter.category;
+  const images = data?.images.nodes;
+
   return (
     <>
       <PageWrapper footerDark>
@@ -30,7 +32,7 @@ const Articles = ({ data }) => {
           <Container>
             <Row>
               <Col lg="8" className="order-lg-2 mb-5">
-                <BlogList />
+                <BlogList list={list} images={images} />
               </Col>
               <Col lg="4" className="order-lg-1">
                 <Sidebar list={list} />
@@ -55,7 +57,22 @@ export const query = graphql`
           articles {
             title
             text
+            thumbnail
+            date
           }
+        }
+      }
+    }
+    images: allFile(
+      filter: {
+        relativeDirectory: { eq: "" }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
+      nodes {
+        relativePath
+        childrenImageSharp {
+          gatsbyImageData
         }
       }
     }

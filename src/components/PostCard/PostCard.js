@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { Title, Box, Text, Span } from "../Core";
-import { device } from "../../utils";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Card = styled(Box)`
   border-radius: 10px 10px;
@@ -13,34 +13,6 @@ const Card = styled(Box)`
   &:hover {
     box-shadow: ${({ theme }) => `0 52px 54px ${theme.colors.shadow}`};
   }
-`;
-
-const ImageContainerHorizontal = styled(Box)`
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-
-  @media ${device.md} {
-    width: 100%;
-    min-width: 350px;
-    max-width: 350px;
-  }
-  @media ${device.lg} {
-    min-width: 265px;
-  }
-  @media ${device.xl} {
-    min-width: 350px;
-    max-width: 350px;
-  }
-`;
-
-const BrandImage = styled(Box)`
-  position: absolute;
-  bottom: 28px;
-  left: 30px;
-  border-radius: 8px;
-  border: 1px solid #eae9f2;
-  overflow: hidden;
 `;
 
 const CardText = styled(Box)`
@@ -55,67 +27,54 @@ const TitleStyled = styled(Title)`
 `;
 
 const PostCard = ({
-  horizontal = false,
   img,
-  imgBrand,
   preTitle,
   title,
+  link,
   children,
   readMore,
   ...rest
-}) => (
-  <Card
-    className={horizontal ? "d-flex flex-column flex-md-row" : ""}
-    {...rest}
-  >
-    {horizontal ? (
-      <ImageContainerHorizontal>
-        <Link to="/" className="w-100 h-100 d-flex">
-          <img src={img} alt="" className="w-100 img-fluid" />
-          {imgBrand && (
-            <BrandImage>
-              <img src={imgBrand} alt="" className="img-fluid" />
-            </BrandImage>
-          )}
-        </Link>
-      </ImageContainerHorizontal>
-    ) : (
+}) => {
+  const image = getImage(img);
+  return (
+    <Card {...rest}>
       <Box className="position-relative">
-        <Link to="/" className="w-100 h-100 d-flex">
-          <img src={img} alt="" className="w-100 img-fluid" />
-          {imgBrand && (
-            <BrandImage>
-              <img src={imgBrand} alt="" className="img-fluid" />
-            </BrandImage>
+        <Link to={`/articles/${link}`} className="w-100 h-100 d-flex">
+          {image && (
+            <GatsbyImage
+              className="w-100 img-fluid"
+              image={image}
+              alt={title}
+            />
           )}
         </Link>
       </Box>
-    )}
 
-    <CardText>
-      {preTitle && (
-        <Text fontSize={2} lineHeight={1.75} mb="14px">
-          Jan 14, 2020
+      <CardText>
+        {preTitle && (
+          <Text fontSize={2} lineHeight={1.75} mb="14px">
+            {preTitle}
+          </Text>
+        )}
+
+        <Link to={`/articles/${link}`}>
+          <TitleStyled variant="card" mb="14px">
+            {title}
+          </TitleStyled>
+        </Link>
+        <Text fontSize={2} lineHeight={1.75} mb="16px">
+          {children}
         </Text>
-      )}
-
-      <Link to="/">
-        <TitleStyled variant="card" mb="14px">
-          {title}
-        </TitleStyled>
-      </Link>
-      <Text fontSize={2} lineHeight={1.75} mb="16px">
-        {children}
-      </Text>
-      {readMore && (
-        <Box>
-          <Link to="/">
-            <Span color="primary">Continue Reading</Span>
-          </Link>
-        </Box>
-      )}
-    </CardText>
-  </Card>
-);
+        {readMore && (
+          <Box>
+            <Link to={`/articles/${link}`}>
+              <Span color="primary">Lire la suite</Span>
+            </Link>
+          </Box>
+        )}
+      </CardText>
+    </Card>
+  );
+};
 
 export default PostCard;
