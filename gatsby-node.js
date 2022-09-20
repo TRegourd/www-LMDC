@@ -8,7 +8,6 @@ exports.onCreatePage = ({ page, actions }) => {
 };
 
 const path = require("path");
-const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`);
 const { default: slugify } = require("slugify");
 const dayjs = require("dayjs");
 
@@ -41,6 +40,11 @@ exports.createPages = ({ actions, graphql }) => {
                   text
                   thumbnail
                   date
+                  description
+                  author
+                  tags {
+                    tag
+                  }
                 }
               }
             }

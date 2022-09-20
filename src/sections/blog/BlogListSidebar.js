@@ -34,7 +34,7 @@ const BlogList = ({ list, images }) => (
                 title={article.title}
                 readMore
               >
-                {article.text}
+                {article.description}
               </PostCard>
             </Col>
           );

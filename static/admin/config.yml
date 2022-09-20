@@ -61,10 +61,17 @@ collections:
                 widget: list
                 fields:
                   - { label: Titre, name: title, widget: string }
+                  - { label: Description, name: description, widget: string }
                   - { label: Date, name: date, widget: date }
+                  - { label: Auteur, name: author, widget: string }
                   - {
                       label: Photo de couverture,
                       name: thumbnail,
                       widget: image,
                     }
                   - { label: Texte, name: text, widget: markdown }
+                  - label: Tags
+                    name: tags
+                    widget: list
+                    fields:
+                      - { label: Tag, name: tag, widget: string }

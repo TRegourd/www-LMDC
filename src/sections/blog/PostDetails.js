@@ -6,6 +6,7 @@ import { Box, Badge } from "../../components/Core";
 import imgB1 from "../../assets/image/jpeg/blog-details-img-1.jpg";
 import iconQuote from "../../assets/image/png/quote-icon.png";
 import { GatsbyImage } from "gatsby-plugin-image";
+import Markdown from "markdown-to-jsx";
 
 const Post = styled(Box)`
   overflow: hidden;
@@ -91,70 +92,24 @@ const ArticleHeaderImg = styled.div`
   margin-bottom: 10px;
 `;
 
-const PostDetails = ({ image }) => (
+const PostDetails = ({ image, text, tags }) => (
   <>
     {/* <!-- Blog section --> */}
     <Post>
-      <ArticleHeaderImg>
+      <ArticleHeaderImg className="pb-5">
         <GatsbyImage
           image={image}
           alt="articleImage"
           className="w-50 img-fluid"
         />
       </ArticleHeaderImg>
-      <div>
-        <p>
-          Doubling my 9–5 salary several times in my career is something I never
-          thought would happen. My career went from startup land to call center
-          operator in a short space of time.
-        </p>
-        <p>
-          That meant going from six-figures down to the minimum wage in my home
-          country of Australia. And to top it off, I have no degrees in anything
-          business related — unless you count a sound engineering qualification.
-        </p>
-        <p>
-          If an uneducated guy from the home of the Kangaroo can double their
-          salary, there is definitely hope for you. Popular career websites like
-          “Seek” suggest the typical advice about doing better in your
-          performance review or getting more education from a university. This
-          advice is out of date and I have watched many colleagues fall for this
-          trap and only end up disappointed.
-        </p>
-        <p>
-          {" "}
-          Doubling your salary, or at the very least increasing it
-          significantly, is about breaking the norm and trying a few things that
-          are a bit more radical as you’re about to see with these simple tips
-          below.
-        </p>
-        <h3>The goal should be more than money</h3>
-        <p>
-          Okay so you can make more money but if that’s your only goal, the
-          extra zeroes on your bank balance will get really boring real quick.
-        </p>
-        <blockquote>
-          You can develop side-businesses, side-hustles, and hobbies that can
-          supplement your 9–5 income source, and they can all put extra money in
-          your pocket that allows you to work less and not stress so much about
-          bills.
-        </blockquote>
-        <p>
-          If an uneducated guy from the home of the Kangaroo can double their
-          salary, there is definitely hope for you. Popular career websites like
-          “Seek” suggest the typical advice about doing better in your
-          performance review or getting more education from a university. This
-          advice is out of date and I have watched many colleagues fall for this
-          trap and only end up disappointed.
-        </p>
-      </div>
+      <Markdown>{text}</Markdown>
     </Post>
     <Box className="d-flex" mt={4}>
-      <BadgePost>Freelance</BadgePost>
-      <BadgePost>Design</BadgePost>
-      <BadgePost>Earning</BadgePost>
-      <BadgePost>Marketing</BadgePost>
-      <BadgePost>Work</BadgePost>
+      {tags &&
+        tags.map((tag) => {
+          return <BadgePost key={tag.tag}>{tag.tag}</BadgePost>;
+        })}
     </Box>
   </>
 );

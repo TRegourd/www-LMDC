@@ -21,6 +21,7 @@ const ArticleDetails = ({ pageContext, data }) => {
     })?.childrenImageSharp[0]
   );
 
+  console.log(content);
   console.log(articleImage);
 
   return (
@@ -36,26 +37,25 @@ const ArticleDetails = ({ pageContext, data }) => {
                   <Text mr={3}>
                     {dayjs(content.date).format("DD MMM, YYYY")}
                   </Text>
-                  <Text mr={3}>
-                    <Link to="/">Technology</Link>
-                  </Text>
-                  <Text>
-                    <Link to="/">David Jones</Link>
-                  </Text>
+
+                  <Text>{content.author}</Text>
                 </Box>
               </Col>
             </Row>
           </Container>
         </Section>
-        <Section className="pb-0">
-          <Container>
-            <Row>
-              <Col lg="12" className="mb-5">
-                <PostDetails image={articleImage} />
-              </Col>
-            </Row>
-          </Container>
-        </Section>
+
+        <Container className="pt-5">
+          <Row>
+            <Col lg="12" className="mb-5">
+              <PostDetails
+                image={articleImage}
+                text={content.text}
+                tags={content.tags}
+              />
+            </Col>
+          </Row>
+        </Container>
       </PageWrapper>
     </>
   );

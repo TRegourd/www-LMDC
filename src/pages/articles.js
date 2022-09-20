@@ -59,6 +59,11 @@ export const query = graphql`
             text
             thumbnail
             date
+            description
+            author
+            tags {
+              tag
+            }
           }
         }
       }
