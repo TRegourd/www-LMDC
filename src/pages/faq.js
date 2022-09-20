@@ -5,6 +5,7 @@ import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import PageWrapper from "../components/PageWrapper";
 import { Section, Title, Text, Box } from "../components/Core";
 import { graphql } from "gatsby";
+import Markdown from "markdown-to-jsx";
 
 const NavStyled = styled(Nav)`
   border-radius: 10px;
@@ -23,18 +24,20 @@ const NavStyled = styled(Nav)`
 `;
 
 const Faq = ({ data }) => {
-  const questions = data?.markdownRemark.frontmatter.questions;
+  const categories = data?.markdownRemark.frontmatter.category;
   const title = data?.markdownRemark.frontmatter.title;
   const subtitle = data?.markdownRemark.frontmatter.subtitle;
 
   function uniqueQuestionsCategory(array) {
     var out = [];
     for (var i = 0, len = array.length; i < len; i++)
-      if (out.indexOf(array[i].category) === -1) out.push(array[i].category);
+      if (out.indexOf(array[i].name) === -1) out.push(array[i].name);
     return out;
   }
 
-  const questionsCategory = uniqueQuestionsCategory(questions);
+  const questionsCategory = uniqueQuestionsCategory(categories);
+
+  console.log(questionsCategory);
 
   return (
     <>
@@ -67,20 +70,23 @@ const Faq = ({ data }) => {
                   </NavStyled>
                 </Col>
                 <Col md="8">
-                  {questionsCategory &&
-                    questionsCategory.map((category) => {
-                      const sortedQuestions = questions.filter((question) => {
-                        return question.category === category;
-                      });
+                  {categories &&
+                    categories.map((category) => {
+                      // const sortedQuestions = categories.filter((question) => {
+                      //   console.log(question);
+                      //   return question.category === category;
+                      // });
+
+                      console.log(category);
 
                       return (
-                        <Tab.Content key={category}>
-                          {sortedQuestions &&
-                            sortedQuestions.map((question) => {
+                        <Tab.Content key={category.name}>
+                          {category.questions &&
+                            category.questions.map((question) => {
                               return (
                                 <Tab.Pane
-                                  key={question.name}
-                                  eventKey={question.category}
+                                  key={question.title}
+                                  eventKey={category.name}
                                 >
                                   <Box mb={4}>
                                     <Title
@@ -88,9 +94,9 @@ const Faq = ({ data }) => {
                                       mb={3}
                                       fontSize="24px"
                                     >
-                                      {question.name}
+                                      {question.title}
                                     </Title>
-                                    <Text variant="small">{question.text}</Text>
+                                    <Markdown>{question.text}</Markdown>
                                   </Box>
                                 </Tab.Pane>
                               );
@@ -115,10 +121,12 @@ export const query = graphql`
       frontmatter {
         title
         subtitle
-        questions {
+        category {
           name
-          text
-          category
+          questions {
+            title
+            text
+          }
         }
       }
     }
