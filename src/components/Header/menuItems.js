@@ -12,6 +12,7 @@ export const menuItems = [
       { name: "usefullLinks", label: "Liens Utiles" },
     ],
   },
+  { name: "contact", label: "Nous contacter" },
   // {
   //   name: "https://uxtheme.net/product-support/",
   //   label: "Support",
