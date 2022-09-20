@@ -37,8 +37,6 @@ const Faq = ({ data }) => {
 
   const questionsCategory = uniqueQuestionsCategory(categories);
 
-  console.log(questionsCategory);
-
   return (
     <>
       <PageWrapper footerDark>
@@ -72,13 +70,6 @@ const Faq = ({ data }) => {
                 <Col md="8">
                   {categories &&
                     categories.map((category) => {
-                      // const sortedQuestions = categories.filter((question) => {
-                      //   console.log(question);
-                      //   return question.category === category;
-                      // });
-
-                      console.log(category);
-
                       return (
                         <Tab.Content key={category.name}>
                           {category.questions &&
