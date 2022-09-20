@@ -82,5 +82,5 @@ collections:
         fields:
           - { label: Titre, name: title, widget: string }
           - { label: Sous-Titre, name: subtitle, widget: string }
-          - { label: Téléphone, name: tel, widget: string }
-          - { label: Email, name: Email, widget: string }
+          - { label: Téléphone, name: phone, widget: string }
+          - { label: Email, name: email, widget: string }

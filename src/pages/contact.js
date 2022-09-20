@@ -6,6 +6,7 @@ import { Title, Button, Section, Box, Text, Input } from "../components/Core";
 
 import PageWrapper from "../components/PageWrapper";
 import { device } from "../utils";
+import { graphql } from "gatsby";
 
 const FormStyled = styled.form``;
 
@@ -26,7 +27,17 @@ const WidgetWrapper = styled(Box)`
   }
 `;
 
-const Contact2 = () => {
+const ContactDetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Contact = ({ data }) => {
+  console.log(data);
+
+  const { title, subtitle, phone, email } = data?.markdownRemark?.frontmatter;
+
   return (
     <>
       <PageWrapper footerDark>
@@ -36,12 +47,8 @@ const Contact2 = () => {
             <Row className="justify-content-center text-center">
               <Col lg="8">
                 <div className="banner-content">
-                  <Title variant="hero">Contact us</Title>
-                  <Text>
-                    Create custom landing pages with Omega that converts{" "}
-                    <br className="d-none d-md-block" /> more visitors than any
-                    website.{" "}
-                  </Text>
+                  <Title variant="hero">{title}</Title>
+                  <Text>{subtitle}</Text>
                 </div>
               </Col>
             </Row>
@@ -49,31 +56,24 @@ const Contact2 = () => {
               <Col xl="10">
                 <WidgetWrapper>
                   <Row>
-                    <Col md="4" sm="6">
+                    <Col sm="6">
                       <Box className="mb-5">
-                        <Title variant="card" fontSize="24px">
-                          Call us
-                        </Title>
-                        <Text>+1-492-4918-395</Text>
-                        <Text>+14-394-409-591</Text>
+                        <ContactDetailWrapper>
+                          <Title variant="card" fontSize="24px">
+                            <i className="fas fa-phone"></i> Téléphone
+                          </Title>
+                          <Text>{phone}</Text>
+                        </ContactDetailWrapper>
                       </Box>
                     </Col>
-                    <Col md="4" sm="6">
+                    <Col sm="6">
                       <Box className="mb-5">
-                        <Title variant="card" fontSize="24px">
-                          Email us
-                        </Title>
-                        <Text>info@mail.com</Text>
-                        <Text>support@mail.com</Text>
-                      </Box>
-                    </Col>
-                    <Col md="4" sm="6">
-                      <Box className="mb-5">
-                        <Title variant="card" fontSize="24px">
-                          Contact us
-                        </Title>
-                        <Text>34 Madison Street,</Text>
-                        <Text>NY, USA 10005</Text>
+                        <ContactDetailWrapper>
+                          <Title variant="card" fontSize="24px">
+                            <i className="fas fa-mail-bulk"></i> Email
+                          </Title>
+                          <Text>{email}</Text>
+                        </ContactDetailWrapper>
                       </Box>
                     </Col>
                   </Row>
@@ -88,16 +88,16 @@ const Contact2 = () => {
                     fontSize="24px"
                     className="mb-5 text-center"
                   >
-                    or, Send us a message
+                    Nous envoyer un message
                   </Title>
                   <FormStyled
-                    name="contact2"
+                    name="contact"
                     method="post"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                   >
                     {/* You still need to add the hidden input with the form name to your JSX form */}
-                    <input type="hidden" name="form-name" value="contact2" />
+                    <input type="hidden" name="form-name" value="contact" />
                     <Box mb={4}>
                       <Title
                         variant="card"
@@ -105,11 +105,11 @@ const Contact2 = () => {
                         as="label"
                         htmlFor="nameput"
                       >
-                        Your name
+                        Nom
                       </Title>
                       <Input
                         type="text"
-                        placeholder="i.e. James Cameron"
+                        placeholder="John Doe"
                         id="nameput"
                         name="name"
                         required
@@ -122,31 +122,13 @@ const Contact2 = () => {
                         as="label"
                         htmlFor="emailput"
                       >
-                        Email address
+                        Email
                       </Title>
                       <Input
                         type="email"
-                        placeholder="i.e. james@email.com"
+                        placeholder="john@doe.com"
                         id="emailput"
                         name="email"
-                        required
-                      />
-                    </Box>
-
-                    <Box mb={4}>
-                      <Title
-                        variant="card"
-                        fontSize="18px"
-                        as="label"
-                        htmlFor="serviceput"
-                      >
-                        Service
-                      </Title>
-                      <Input
-                        type="text"
-                        placeholder="i.e. I want to know about your service"
-                        id="serviceput"
-                        name="service"
                         required
                       />
                     </Box>
@@ -163,7 +145,7 @@ const Contact2 = () => {
                       <Input
                         type="text"
                         as="textarea"
-                        placeholder="Write your message here"
+                        placeholder="Votre message"
                         rows={4}
                         id="messageput"
                         name="message"
@@ -172,7 +154,7 @@ const Contact2 = () => {
                     </Box>
 
                     <Button width="100%" type="submit" borderRadius={10}>
-                      Send Message
+                      Envoyer
                     </Button>
                   </FormStyled>
                 </div>
@@ -184,4 +166,17 @@ const Contact2 = () => {
     </>
   );
 };
-export default Contact2;
+export default Contact;
+
+export const query = graphql`
+  query {
+    markdownRemark(fields: { slug: { eq: "/contact" } }) {
+      frontmatter {
+        title
+        subtitle
+        email
+        phone
+      }
+    }
+  }
+`;
