@@ -63,9 +63,6 @@ category:
           2. An me, inquam, nisi te audire vellem, censes haec dicturum fuisse?
 
           3. Legimus tamen Diogenem, Antipatrum, Mnesarchum, Panaetium, multos alios in primisque familiarem nostrum Posidonium.
-
-
-          ![Image Contact](scott-graham-5fnmwej4taa-unsplash.jpeg "Image Contact")
   - name: Fiscalité
     questions:
       - title: Dois-je déclarer mes comptes en crypto ?
@@ -125,19 +122,19 @@ category:
           6. Longum est enim ad omnia respondere, quae a te dicta sunt.
       - title: Quels sont les risques liés à l'investissement en crypto ?
         text: >-
-          # Respondeat totidem verbis.
+          #### Respondeat totidem verbis.
 
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non quaero, quid dicat, sed quid convenienter possit rationi et sententiae suae dicere. Sic vester sapiens magno aliquo emolumento commotus cicuta, si opus erit, dimicabit. Sed quoniam et advesperascit et mihi ad villam revertendum est, nunc quidem hactenus; Dempta enim aeternitate nihilo beatior Iuppiter quam Epicurus; Zenonis est, inquam, hoc Stoici. Ut optime, secundum naturam affectum esse possit.
 
 
-          ## Duo Reges: constructio interrete.
+          ##### Duo Reges: constructio interrete.
 
 
           **Equidem e Cn.** Non semper, inquam; Duo enim genera quae erant, fecit tria. *Et nemo nimium beatus est;* Aliis esse maiora, illud dubium, ad id, quod summum bonum dicitis, ecquaenam possit fieri accessio. Non igitur bene. Quantum Aristoxeni ingenium consumptum videmus in musicis? Et quidem illud ipsum non nimium probo et tantum patior, philosophum loqui de cupiditatibus finiendis.
 
 
-          ### Quid enim est a Chrysippo praetermissum in Stoicis?
+          ##### Quid enim est a Chrysippo praetermissum in Stoicis?
 
 
           Ad corpus diceres pertinere-, sed ea, quae dixi, ad corpusne refers? Ut in geometria, prima si dederis, danda sunt omnia. Illud non continuo, ut aeque incontentae. Eam tum adesse, cum dolor omnis absit; Sed id ne cogitari quidem potest quale sit, ut non repugnet ipsum sibi. Apparet statim, quae sint officia, quae actiones. Nulla profecto est, quin suam vim retineat a primo ad extremum. Ex quo illud efficitur, qui bene cenent omnis libenter cenare, qui libenter, non continuo bene. Qui ita affectus, beatum esse numquam probabis; Quis suae urbis conservatorem Codrum, quis Erechthei filias non maxime laudat? Ut in geometria, prima si dederis, danda sunt omnia.
@@ -152,4 +149,19 @@ category:
           4. Tria genera cupiditatum, naturales et necessariae, naturales et non necessariae, nec naturales nec necessariae.
 
           5. Tibi hoc incredibile, quod beatissimum.
+  - name: Législation
+    questions:
+      - title: Quels sont les risques associés à une mauvaise déclaration ?
+        text: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Memini me
+          adesse P. Quod cum dixissent, ille contra. Duo Reges: constructio
+          interrete. [Sedulo, inquam, faciam.](http://loripsum.net/) Quid
+          iudicant sensus? [Primum in nostrane potestate est, quid
+          meminerimus?](http://loripsum.net/)
+
+
+          Qui ita affectus, beatum esse numquam probabis; Illa videamus, quae a te de amicitia dicta sunt. Efficiens dici potest. Quae cum essent dicta, discessimus. Suo genere perveniant ad extremum; Pugnant Stoici cum Peripateticis. Illa tamen simplicia, vestra versuta.
+
+
+          Ergo id est convenienter naturae vivere, a natura discedere. Conferam avum tuum Drusum cum C. Aliter enim explicari, quod quaeritur, non potest. Quod iam a me expectare noli. Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Sumenda potius quam expetenda.
 ---
