@@ -8,15 +8,22 @@ exports.onCreatePage = ({ page, actions }) => {
 };
 
 const path = require("path");
-const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`);
 const { default: slugify } = require("slugify");
 const dayjs = require("dayjs");
 
 const sortArticlesByDate = (array) => {
   let sortedArticles = [];
-  array.map((category) => {
+  array?.map((category) => {
     category?.articles.map((article) => {
-      sortedArticles.push(article);
+      if (article.tags.some((item) => item.tag === category.name)) {
+        sortedArticles.push(article);
+      } else {
+        let articleWithCategoryTag = {
+          ...article,
+          tags: [{ tag: category.name }].concat(article.tags),
+        };
+        sortedArticles.push(articleWithCategoryTag);
+      }
     });
   });
   sortedArticles.sort((a, b) => dayjs(b.date) - dayjs(a.date));
@@ -41,6 +48,11 @@ exports.createPages = ({ actions, graphql }) => {
                   text
                   thumbnail
                   date
+                  description
+                  author
+                  tags {
+                    tag
+                  }
                 }
               }
             }

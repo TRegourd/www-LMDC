@@ -12,6 +12,12 @@ const CardSidebarContainer = styled.div`
   }
 `;
 
+const TitleHover = styled.div`
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export const CardSidebar = ({ children, ...rest }) => (
   <CardSidebarContainer>
     <Box mb="30px" p="25px" {...rest}>
@@ -26,11 +32,15 @@ export const Block = ({ children, ...rest }) => (
   </Box>
 );
 
-export const TitleSidebar = ({ children, ...rest }) => (
-  <Title variant="card" fontSize="24px" color="light" {...rest}>
-    {children}
-  </Title>
-);
+export const TitleSidebar = ({ children, ...rest }) => {
+  return (
+    <TitleHover>
+      <Title variant="card" fontSize="24px" color="light" {...rest}>
+        {children}
+      </Title>
+    </TitleHover>
+  );
+};
 
 export const TitlePost = ({ link, children, ...rest }) => (
   <Title variant="card" fontSize="16px" mb={0} {...rest}>
@@ -59,7 +69,7 @@ export const CatList = ({ children, ...rest }) => (
   </ul>
 );
 
-export const CatListItem = ({ link = "/", numPosts, children, ...rest }) => {
+export const CatListItem = ({ numPosts, children, ...rest }) => {
   return (
     <li
       {...rest}
@@ -67,7 +77,7 @@ export const CatListItem = ({ link = "/", numPosts, children, ...rest }) => {
         margin-bottom: 13px;
       `}
     >
-      <Link to={link}>
+      <Link to="#">
         <Span color="light">{children}</Span>{" "}
         <Span color="lightShade">- {numPosts} Articles</Span>
       </Link>

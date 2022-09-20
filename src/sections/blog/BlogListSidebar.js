@@ -17,11 +17,9 @@ import slugify from "slugify";
 
 const BlogList = ({ list, images }) => (
   <>
-    {/* <!-- Blog section --> */}
-
     <Row className="align-items-center justify-content-center">
-      {sortArticlesByDate(list) &&
-        sortArticlesByDate(list).map((article) => {
+      {list &&
+        list.map((article) => {
           const articleImage = images.find((el) => {
             return el.relativePath === article.thumbnail;
           });
@@ -34,7 +32,7 @@ const BlogList = ({ list, images }) => (
                 title={article.title}
                 readMore
               >
-                {article.text}
+                {article.description}
               </PostCard>
             </Col>
           );
