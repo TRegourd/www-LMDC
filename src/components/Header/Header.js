@@ -427,11 +427,11 @@ const Header = ({ isDark = false }) => {
                 </Menu>
               </div>
             </div>
-            <div className="header-btns ml-auto ml-lg-0 d-none d-md-block">
-              <Link className="btn-red hvr-bounce-to-left" to="/">
-                Get Started
+            {/* <div className="header-btns ml-auto ml-lg-0 d-none d-md-block">
+              <Link className="btn-red hvr-bounce-to-left" to="/contact">
+                Nous contacter
               </Link>
-            </div>
+            </div> */}
             <ToggleButton
               className={`navbar-toggler btn-close-off-canvas ml-3 ${
                 gContext.visibleOffCanvas ? "collapsed" : ""

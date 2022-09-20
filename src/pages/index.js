@@ -6,14 +6,14 @@ import Content2 from "../sections/landing1/Content2";
 import Testimonial from "../sections/landing1/Testimonial";
 import CTA from "../sections/landing1/CTA";
 import PageWrapper from "../components/PageWrapper";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 const IndexPage = ({ data }) => {
   const [crypto, setCrypto] = useState();
   const images = data?.images.nodes;
 
   useEffect(() => {
-    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=12&page=1&sparkline=false
+    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false
     `)
       .then((response) => response.json())
       .then((resuultData) => {
@@ -25,7 +25,9 @@ const IndexPage = ({ data }) => {
     <>
       <PageWrapper footerDark>
         <Hero content={data?.hero.frontmatter} images={images} />
-        <IndexCrypto list={crypto} />
+        <Link to="https://www.coingecko.com/" target="_blank">
+          <IndexCrypto list={crypto} />
+        </Link>
         <Content1 />
         <Content2 />
         <Testimonial />

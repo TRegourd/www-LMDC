@@ -7,6 +7,7 @@ import { Title, Button, Section, Box, Text } from "../../components/Core";
 import { device } from "../../utils";
 import svgHeroShape from "../../assets/image/svg/hero-shape-svg.svg";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const ShapeTopLeft = styled.div`
   position: absolute;
@@ -155,7 +156,9 @@ const Hero = ({ content, images }) => {
                   <Title variant="hero">{content.title}</Title>
                   <Text mb={4}>{content.subtitle}</Text>
                   <div className="d-flex flex-column align-items-start">
-                    <Button mb={3}>En savoir plus</Button>
+                    <Link className="btn-link" to="/about">
+                      <Button mb={3}>En savoir plus</Button>
+                    </Link>
                   </div>
                 </Box>
               </div>
