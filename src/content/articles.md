@@ -103,13 +103,10 @@ category:
 
           * Peccata paria.
 
-            Huic mori optimum esse propter desperationem sapientiae, illi propter spem vivere.
           * Sed videbimus.
 
-            Rapior illuc, revocat autem Antiochus, nec est praeterea, quem audiamus.
           * Sed haec omittamus;
 
-            Stuprata per vim Lucretia a regis filio testata civis se ipsa interemit.
           * Hosne igitur laudas et hanc eorum, inquam, sententiam sequi nos censes oportere?
 
           * Quis est tam dissimile homini.
