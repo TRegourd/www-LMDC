@@ -93,6 +93,7 @@ const Contact = ({ data }) => {
                   <FormStyled
                     name="contact"
                     method="post"
+                    action="contact-success"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                   >
