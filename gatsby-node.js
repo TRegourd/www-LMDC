@@ -13,9 +13,17 @@ const dayjs = require("dayjs");
 
 const sortArticlesByDate = (array) => {
   let sortedArticles = [];
-  array.map((category) => {
+  array?.map((category) => {
     category?.articles.map((article) => {
-      sortedArticles.push(article);
+      if (article.tags.some((item) => item.tag === category.name)) {
+        sortedArticles.push(article);
+      } else {
+        let articleWithCategoryTag = {
+          ...article,
+          tags: [{ tag: category.name }].concat(article.tags),
+        };
+        sortedArticles.push(articleWithCategoryTag);
+      }
     });
   });
   sortedArticles.sort((a, b) => dayjs(b.date) - dayjs(a.date));

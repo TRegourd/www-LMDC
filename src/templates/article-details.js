@@ -21,9 +21,6 @@ const ArticleDetails = ({ pageContext, data }) => {
     })?.childrenImageSharp[0]
   );
 
-  console.log(content);
-  console.log(articleImage);
-
   return (
     <>
       <PageWrapper footerDark>

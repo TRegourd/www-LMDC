@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import PageWrapper from "../components/PageWrapper";
@@ -7,12 +7,45 @@ import { Section, Title, Text } from "../components/Core";
 import BlogList from "../sections/blog/BlogListSidebar";
 import Sidebar from "../sections/blog/Sidebar";
 import { graphql } from "gatsby";
+import { sortArticlesByDate } from "../utils/sortArticlesByDate";
+import { filterArticles } from "../utils/filterArticles";
 
 const Articles = ({ data }) => {
   const title = data?.markdownRemark.frontmatter.title;
   const subtitle = data?.markdownRemark.frontmatter.subtitle;
   const list = data?.markdownRemark.frontmatter.category;
   const images = data?.images.nodes;
+
+  const [filteredArticles, setFilteredArticles] = useState(
+    sortArticlesByDate(list)
+  );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFilteredArticles(
+      filterArticles(sortArticlesByDate(list), e.target.value)
+    );
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target.nodeName === "SPAN") {
+      setFilteredArticles(
+        filterArticles(
+          sortArticlesByDate(list),
+          e.target.textContent?.toLowerCase()
+        )
+      );
+    }
+    if (
+      e.target.textContent === "Catégories" ||
+      e.target.textContent === "Articles Récents"
+    ) {
+      setFilteredArticles(sortArticlesByDate(list));
+    }
+  };
+
+  useEffect(() => {}, [filteredArticles]);
 
   return (
     <>
@@ -32,10 +65,12 @@ const Articles = ({ data }) => {
           <Container>
             <Row>
               <Col lg="8" className="order-lg-2 mb-5">
-                <BlogList list={list} images={images} />
+                <BlogList list={filteredArticles} images={images} />
               </Col>
               <Col lg="4" className="order-lg-1">
-                <Sidebar list={list} />
+                <form onChange={handleSubmit} onClick={handleClick}>
+                  <Sidebar list={list} />
+                </form>
               </Col>
             </Row>
           </Container>

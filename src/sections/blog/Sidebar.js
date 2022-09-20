@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import {
   CardSidebar,
@@ -19,12 +19,10 @@ const Sidebar = ({ list }) => {
   return (
     <>
       <CardSidebar p="15px" pl="20px">
-        <form>
-          <InputSearch />
-        </form>
+        <InputSearch />
       </CardSidebar>
       <CardSidebar>
-        <TitleSidebar>Recent Posts</TitleSidebar>
+        <TitleSidebar>Articles Récents</TitleSidebar>
         {sortArticlesByDate(list)
           .slice(0, 4)
           .map((article) => {
@@ -40,7 +38,7 @@ const Sidebar = ({ list }) => {
       </CardSidebar>
 
       <CardSidebar>
-        <TitleSidebar mb="28px">Categories</TitleSidebar>
+        <TitleSidebar mb="28px">Catégories</TitleSidebar>
         <CatList>
           {list &&
             list.map((category) => {
