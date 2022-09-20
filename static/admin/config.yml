@@ -73,3 +73,14 @@ collections:
                     widget: list
                     fields:
                       - { label: Tag, name: tag, widget: string }
+  - label: "Contenu de la page contact"
+    name: "contact"
+    files:
+      - label: "Contenu de la page"
+        name: "contactContent"
+        file: "src/content/contact.md"
+        fields:
+          - { label: Titre, name: title, widget: string }
+          - { label: Sous-Titre, name: subtitle, widget: string }
+          - { label: Téléphone, name: tel, widget: string }
+          - { label: Email, name: Email, widget: string }

@@ -428,8 +428,8 @@ const Header = ({ isDark = false }) => {
               </div>
             </div>
             <div className="header-btns ml-auto ml-lg-0 d-none d-md-block">
-              <Link className="btn-red hvr-bounce-to-left" to="/">
-                Get Started
+              <Link className="btn-red hvr-bounce-to-left" to="/contact">
+                Nous contacter
               </Link>
             </div>
             <ToggleButton
