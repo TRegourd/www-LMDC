@@ -149,4 +149,19 @@ category:
           4. Tria genera cupiditatum, naturales et necessariae, naturales et non necessariae, nec naturales nec necessariae.
 
           5. Tibi hoc incredibile, quod beatissimum.
+  - name: Législation
+    questions:
+      - title: Quels sont les risques associés à une mauvaise déclaration ?
+        text: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Memini me
+          adesse P. Quod cum dixissent, ille contra. Duo Reges: constructio
+          interrete. [Sedulo, inquam, faciam.](http://loripsum.net/) Quid
+          iudicant sensus? [Primum in nostrane potestate est, quid
+          meminerimus?](http://loripsum.net/)
+
+
+          Qui ita affectus, beatum esse numquam probabis; Illa videamus, quae a te de amicitia dicta sunt. Efficiens dici potest. Quae cum essent dicta, discessimus. Suo genere perveniant ad extremum; Pugnant Stoici cum Peripateticis. Illa tamen simplicia, vestra versuta.
+
+
+          Ergo id est convenienter naturae vivere, a natura discedere. Conferam avum tuum Drusum cum C. Aliter enim explicari, quod quaeritur, non potest. Quod iam a me expectare noli. Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Sumenda potius quam expetenda.
 ---
