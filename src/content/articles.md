@@ -98,6 +98,9 @@ category:
           2. Ait enim se, si uratur, Quam hoc suave! dicturum.
 
 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. *Sit sane ista voluptas.* Duo Reges: constructio interrete. Quid ei reliquisti, nisi te, quoquo modo loqueretur, intellegere, quid diceret? Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Non minor, inquit, voluptas percipitur ex vilissimis rebus quam ex pretiosissimis.
+
+
           * Peccata paria.
 
             Huic mori optimum esse propter desperationem sapientiae, illi propter spem vivere.
