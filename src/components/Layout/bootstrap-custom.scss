@@ -16,6 +16,10 @@
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
 
+.btn-link {
+  text-decoration: none;
+}
+
 // .has-offcanvas {
 //   width: 100%;
 //   height: 100%;

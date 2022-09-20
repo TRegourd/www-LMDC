@@ -66,7 +66,7 @@ const NotFoundPage = () => {
                 </Text>
               </div>
               <div className="mt-5">
-                <Link to="/">
+                <Link className="btn-link" to="/">
                   <ButtonStyled>Retour à l'accueil</ButtonStyled>
                 </Link>
               </div>
