@@ -1,7 +1,7 @@
 ---
 aboutHeader:
   title: A propos
-  subtitle: Qui sommes nous et pourquoi pensons nous pouvoir vous aider
+  subtitle: Qui sommes nous et pourquoi pensons-nous pouvoir vous aider
 aboutDesc:
   descTitle: Notre mission
   descSubtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quae hic
@@ -20,10 +20,11 @@ aboutAuhtor:
     Je suis Florent Charignon, expert comptable stagiaire et passionné de
     cryptomonnaies. 
 
+
     Je souhaite developper l'accompagnent des experts-comptables dans la cryptosphère pour répondre aux besoins croissants de la part de nos clients.
 
 
-    Vous pouvez me retrouver sur 
+    Retrouvez-moi sur [Linkedin](https://www.linkedin.com/in/florentcharignon/) et [Twitter](https://www.twitter.com).
 aboutCTA:
   CTATitle: En savoir plus
   CTASubtitle: Un projet ? Une question ? Contactez nous !
