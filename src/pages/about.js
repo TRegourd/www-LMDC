@@ -3,22 +3,68 @@ import React from "react";
 import PageWrapper from "../components/PageWrapper";
 import Hero from "../sections/common/Hero";
 import Content from "../sections/about/Content";
-import Team from "../sections/about/Team";
 import CTA from "../sections/about/CTA";
+import Fact from "../sections/about/Author";
+import { graphql } from "gatsby";
 
-const About = () => {
+const About = ({ data }) => {
   return (
     <>
       <PageWrapper footerDark>
-        <Hero title="About us">
-          Create custom landing pages with Omega that converts more visitors
-          than any website.
-        </Hero>
-        <Content />
-        <Team />
-        <CTA />
+        <Hero content={data.about.frontmatter?.aboutHeader}></Hero>
+        <Content
+          content={data.about.frontmatter?.aboutDesc}
+          images={data?.images.nodes}
+        />
+        <Fact
+          content={data.about.frontmatter?.aboutAuthor}
+          images={data?.images.nodes}
+        />
+        <CTA content={data.about.frontmatter?.aboutCTA} />
       </PageWrapper>
     </>
   );
 };
 export default About;
+
+export const query = graphql`
+  query {
+    about: markdownRemark(fields: { slug: { eq: "/about" } }) {
+      frontmatter {
+        aboutHeader {
+          title
+          subtitle
+        }
+        aboutDesc {
+          descTitle
+          descSubtitle
+          descImage1
+          descImage2
+        }
+        aboutAuthor {
+          authorTitle
+          authorImage
+          authorName
+          authorDesc
+        }
+        aboutCTA {
+          CTATitle
+          CTASubtitle
+        }
+      }
+    }
+    images: allFile(
+      filter: {
+        relativeDirectory: { eq: "" }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
+      nodes {
+        relativePath
+        childrenImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+`;

@@ -19,6 +19,70 @@ collections:
           - { label: Carte Glissante Haute, name: topCard, widget: string }
           - { label: Carte Glissante Basse, name: botCard, widget: string }
 
+  - label: "Contenu de la page A propos"
+    name: "about"
+    files:
+      - label: "Contenu de la page"
+        name: "aboutContent"
+        file: "src/content/about.md"
+        fields:
+          - label: Entête
+            name: aboutHeader
+            widget: object
+            fields:
+              - { label: Titre de l'entête, name: title, widget: string }
+              - { label: Sous-Titre de l'entête, name: subtitle, widget: text }
+          - label: Description
+            name: aboutDesc
+            widget: object
+            fields:
+              - {
+                  label: Titre de la description,
+                  name: descTitle,
+                  widget: string,
+                }
+              - {
+                  label: Sous Titre de la description,
+                  name: descSubtitle,
+                  widget: text,
+                }
+              - {
+                  label: Image de la description n°1,
+                  name: descImage1,
+                  widget: image,
+                }
+              - {
+                  label: Image de la description n°2,
+                  name: descImage2,
+                  widget: image,
+                }
+          - label: Auteur
+            name: aboutAuthor
+            widget: object
+            fields:
+              - { label: Titre de l'auteur, name: authorTitle, widget: string }
+              - { label: Image de l'auteur, name: authorImage, widget: image }
+              - { label: Nom de l'auteur, name: authorName, widget: string }
+              - {
+                  label: Description de l'auteur,
+                  name: authorDesc,
+                  widget: markdown,
+                }
+          - label: Call To Action
+            name: aboutCTA
+            widget: object
+            fields:
+              - {
+                  label: Titre du Call to Action,
+                  name: CTATitle,
+                  widget: string,
+                }
+              - {
+                  label: SousTitre du Call to Action,
+                  name: CTASubtitle,
+                  widget: string,
+                }
+
   - label: "Contenu de la FAQ"
     name: "faq"
     files:
