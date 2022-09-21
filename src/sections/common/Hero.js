@@ -12,7 +12,7 @@ const SectionStyled = styled(Section)`
   );
 `;
 
-const Hero = ({ title, children, ...rest }) => {
+const Hero = ({ content, ...rest }) => {
   return (
     <>
       <SectionStyled
@@ -24,8 +24,8 @@ const Hero = ({ title, children, ...rest }) => {
           <Row>
             <Col lg="6">
               <div>
-                <Title variant="hero">{title}</Title>
-                <Text>{children}</Text>
+                <Title variant="hero">{content.title}</Title>
+                <Text>{content.subtitle}</Text>
               </div>
             </Col>
           </Row>

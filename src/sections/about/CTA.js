@@ -6,6 +6,7 @@ import { Title, Button, Section, Box, Text } from "../../components/Core";
 
 import imgOval from "../../assets/image/png/l1-cta-oval.png";
 import svgCurve from "../../assets/image/svg/l1-curve-cta.svg";
+import { Link } from "gatsby";
 
 const LeftCard = styled(Box)`
   position: absolute;
@@ -19,17 +20,17 @@ const RightCard = styled(Box)`
   right: -275px;
 `;
 
-const CTA = () => (
+const CTA = ({ content }) => (
   <>
     {/* <!-- CTA section --> */}
     <Section bg="dark" className="position-relative">
-      <LeftCard
+      {/* <LeftCard
         data-aos="fade-right"
         data-aos-duration="750"
         data-aos-once="true"
       >
         <img src={imgOval} alt="" className="img-fluid" />
-      </LeftCard>
+      </LeftCard> */}
       <RightCard>
         <img src={svgCurve} alt="" className="img-fluid" />
       </RightCard>
@@ -37,14 +38,15 @@ const CTA = () => (
         <Row className="justify-content-center text-center">
           <Col lg="6">
             <Box mb={5} className="text-center">
-              <Title color="light">Want to join?</Title>
+              <Title color="light">{content.CTATitle}</Title>
               <Text color="light" opacity={0.7}>
-                Are you interested to join our team? Check out our job openings
-                and apply on your suitable role.
+                {content.CTASubtitle}
               </Text>
             </Box>
             <Box>
-              <Button>Check Job Openings</Button>
+              <Link to="/contact" className="btn-link">
+                <Button>Nous contacter</Button>
+              </Link>
             </Box>
           </Col>
         </Row>
